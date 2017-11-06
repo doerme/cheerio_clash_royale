@@ -1,10 +1,10 @@
 ## 优先爬虫地址
 
-https://dak.gg/profile/PlayerJP/renew
+https://dak.gg/profile/Aaron
 
 ## 爬虫地址
 
-https://pubg.me/player/PlayerJP
+https://pubg.me/player/Aaron
 
 ## YYLOGO
 
