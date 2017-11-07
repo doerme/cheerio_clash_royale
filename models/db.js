@@ -1,9 +1,9 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-    host     : '14.215.104.189',
-    user     : 'me',
-    password : 'secret',
-    database : 'my_db'
+    host     : '127.0.0.1',
+    user     : 'root',
+    password : 'root',
+    database : 'battle_grounds_web'
 });
 
 connection.connect();

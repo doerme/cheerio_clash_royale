@@ -4,6 +4,29 @@ var Proxy = require('../proxy');
 var superagent = require('superagent');
 var cheerio = require('cheerio');
 
+var updateStreamInfo = function(steam_acount, dak_data, pubg_data){
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '127.0.0.1',
+        user     : 'root',
+        password : 'root',
+        database : 'battle_grounds_web'
+    });
+    var addtime = new Date()*1;
+    
+    var queryString = 'insert into `battle_grounds_web`.`player_record`(`steam_acount`,`addtime`,`dak_data`,`pubg_data`) values("'+steam_acount+'","'+addtime+'","'+dak_data+'","'+pubg_data+'")';
+    console.log('queryString:', queryString);
+    connection.connect();
+    
+    connection.query(queryString, function (error, results, fields) {
+        if (error) throw error;
+        // res.jsonp(results);
+        console.log('The solution is: ', results);
+    });
+     
+    connection.end();
+}
+
 module.exports = function(router){
     router.use(function(res, req, next){
         //do loging
@@ -30,6 +53,7 @@ module.exports = function(router){
     // 获取赛季数据
     router.route('/getGameSession').get((req, res, next) => {
         console.log('req.query:', req.query);
+        var resultJSON = {};
         superagent.get('https://pubg.me/player/'+ req.query.username)
         .end(function (err, sres) {
             if (err) {
@@ -53,10 +77,15 @@ module.exports = function(router){
                     }
                 });
             });
+            resultJSON = {
+                code: 0,
+                data: items,
+                playTime: $('.profile-header-card > .card-header-large > .profile-header-stats').eq(1).find('.stat').eq(1).find('.value').html()
+            }
             if(req.query.callback){
-                res.send(req.query.callback +'('+JSON.stringify(items) +')');
+                res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
             }else{
-                res.jsonp(items);
+                res.jsonp(resultJSON);
             }
 
         });
@@ -100,6 +129,7 @@ module.exports = function(router){
                 };
             });
             if(req.query.callback){
+                updateStreamInfo(req.query.username, encodeURIComponent(JSON.stringify(items)), null);
                 res.send(req.query.callback +'('+JSON.stringify(items) +')');
             }else{
                 res.jsonp(items);
@@ -112,6 +142,7 @@ module.exports = function(router){
     router.route('/getGameScore').get((req, res, next) => {
         console.log('req.query: decodeURIComponent(req.query.apiurl)', decodeURIComponent(req.query.apiurl));
         var items = {};
+        var resultJSON = {};
         if(req.query.apiurl){
             superagent.get(decodeURIComponent(req.query.apiurl)).end(function (err, sres) {
                 if (err) {
@@ -147,15 +178,59 @@ module.exports = function(router){
                         }
                     };
                 });
+                resultJSON = {
+                    code: 0,
+                    data: items,
+                    playTime: $('.profile-header-card > .card-header-large > .profile-header-stats').eq(1).find('.stat').eq(1).find('.value').html()
+                }
                 if(req.query.callback){
-                    res.send(req.query.callback +'('+JSON.stringify(items) +')');
+                    updateStreamInfo(decodeURIComponent(req.query.apiurl).match(/player\/(\w+)\?/)[1], null, encodeURIComponent(JSON.stringify(resultJSON)));
+                    res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
                 }else{
-                    res.jsonp(items);
+                    res.jsonp(resultJSON);
                 }
             });
         }else{
-            res.jsonp(items);
+            res.jsonp(resultJSON);
         }
+    });
+
+    // DB test
+    router.route('/dbtest').get((req, res, next) =>{
+        
+    })
+
+    // DB query test
+    router.route('/dbquerytest').get((req, res, next) =>{
+        var mysql      = require('mysql');
+        var connection = mysql.createConnection({
+            host     : '127.0.0.1',
+            user     : 'root',
+            password : 'root',
+            database : 'battle_grounds_web'
+        });
+        var addtime = new Date()*1;
+        
+        var queryString = "SELECT  * FROM `player_record` WHERE `steam_acount` = 'aaron' order by id desc limit 1";
+        console.log('queryString:', queryString);
+        connection.connect();
+        
+        connection.query(queryString, function (error, results, fields) {
+            if (error) throw error;
+            console.log('The solution is: ', results);
+            var dataRs = results[0];
+            var resultJSON = {};
+            var items = {};
+            items = dataRs.pubg_data || dataRs.dak_data;
+            resultJSON = decodeURIComponent(items);
+            resultJSON = JSON.parse(resultJSON);
+            if(req.query.callback){
+                res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
+            }else{
+                res.jsonp(resultJSON);
+            }
+        });
+        connection.end();
     });
 }
    
