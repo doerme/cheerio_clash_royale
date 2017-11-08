@@ -7,11 +7,19 @@ var cheerio = require('cheerio');
 var updateStreamInfo = function(steam_acount, session, area, dak_data, pubg_data){
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
-        host     : '127.0.0.1',
-        user     : 'root',
-        password : 'root',
+        host     : '127.0.0.1', // 14.215.104.189   127.0.0.1
+        //port     : '6307',
+        user     : 'root', // yytalk    root
+        password : 'root', // qe3dy0Sy  root
         database : 'battle_grounds_web'
     });
+    // var connection = mysql.createConnection({
+    //     host     : '14.215.104.189', // 14.215.104.189   127.0.0.1
+    //     port     : '6307',
+    //     user     : 'yytalk', // yytalk    root
+    //     password : 'qe3dy0Sy', // qe3dy0Sy  root
+    //     database : 'battle_grounds_web'
+    // });
     var addtime = new Date()*1;
     
     var queryString = 'insert into `battle_grounds_web`.`player_record`(`steam_acount`,`session`,`area`,`addtime`,`dak_data`,`pubg_data`) values("'+steam_acount+'","'+session+'","'+area+'","'+addtime+'","'+dak_data+'","'+pubg_data+'")';
@@ -54,8 +62,11 @@ module.exports = function(router){
     router.route('/getDakSession').get((req, res, next) => {
         console.log('req.query:', req.query);
         var resultJSON = {};
-        superagent.get('https://dak.gg/profile/'+ req.query.username)
-        .end(function (err, sres) {
+        var catchLink = 'https://dak.gg/profile/'+ req.query.username;
+        if(req.query.appLink){
+            catchLink = req.query.appLink;
+        }
+        superagent.get(catchLink).end(function (err, sres) {
             if (err) {
                 return next(err);
             }
@@ -66,9 +77,10 @@ module.exports = function(router){
                 var $element = $(element);
                     curSession = '赛季'+$element.find('a').text().match(/#(\d)/)[1];
                     console.log('curSession:', curSession);
-                    items[curSession] = [];
+                    items[curSession] = $element.find('a').attr('href');
             });
             curSession = '赛季'+$('.seasons ul li.active').find('a').text().match(/#(\d)/)[1]
+            items[curSession] = [];
             $('.regions ul li').each(function (idx, element) {
                 var $element = $(element);
                 if(!$element.hasClass('played_0')){
@@ -168,7 +180,7 @@ module.exports = function(router){
                             KDR: $element.find('.kd').find('.value').text(),
                             WINS: $element.find('.winratio').find('.value').text(),
                             MATCHES: $element.find('.games').find('.value').text(),
-                            SEASON: $element.find('.desc').find('.rank').text(),
+                            SEASON: $element.find('.desc').find('.rank').text().replace('#',''),
                             ADR: $element.find('.mostkills').find('.value').text(),
                             TOP10: $element.find('.top10s').find('.value').text()
                         }
@@ -259,35 +271,39 @@ module.exports = function(router){
 
     // DB query test
     router.route('/dbquerytest').get((req, res, next) =>{
-        var mysql      = require('mysql');
-        var connection = mysql.createConnection({
-            host     : '127.0.0.1',
-            user     : 'root',
-            password : 'root',
-            database : 'battle_grounds_web'
-        });
-        var addtime = new Date()*1;
-        
-        var queryString = "SELECT  * FROM `player_record` WHERE `steam_acount` = 'aaron' order by id desc limit 1";
-        console.log('queryString:', queryString);
-        connection.connect();
-        
-        connection.query(queryString, function (error, results, fields) {
-            if (error) throw error;
-            console.log('The solution is: ', results);
-            var dataRs = results[0];
-            var resultJSON = {};
-            var items = {};
-            items = dataRs.pubg_data || dataRs.dak_data;
-            resultJSON = decodeURIComponent(items);
-            resultJSON = JSON.parse(resultJSON);
-            if(req.query.callback){
-                res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
-            }else{
-                res.jsonp(resultJSON);
-            }
-        });
-        connection.end();
+        if(req.query.username){
+            var mysql      = require('mysql');
+            var connection = mysql.createConnection({
+                host     : '127.0.0.1',
+                user     : 'root',
+                password : 'root',
+                database : 'battle_grounds_web'
+            });
+            var addtime = new Date()*1;
+            var queryString = "SELECT  * FROM `player_record` WHERE `steam_acount` = '"+ req.query.username +"' order by id desc limit 1";
+            console.log('queryString:', queryString);
+            connection.connect();
+            
+            connection.query(queryString, function (error, results, fields) {
+                if (error) throw error;
+                // console.log('The solution is: ', results);
+                var dataRs = results[0];
+                var resultJSON = {};
+                var items = {};
+                items = dataRs.pubg_data && dataRs.pubg_data != 'null' ? dataRs.pubg_data : dataRs.dak_data;
+                resultJSON = decodeURIComponent(items);
+                resultJSON = JSON.parse(resultJSON);
+                // console.log('The item is: ', dataRs);
+                if(req.query.callback){
+                    res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
+                }else{
+                    res.jsonp(resultJSON);
+                }
+            });
+            connection.end();
+        }else{
+            res.jsonp({});
+        }
     });
 }
    

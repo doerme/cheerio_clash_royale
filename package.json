@@ -25,11 +25,13 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.3",
     "file-stream-rotator": "^0.1.0",
     "morgan": "^1.8.2",
     "mysql": "^2.15.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "superagent": "^3.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
