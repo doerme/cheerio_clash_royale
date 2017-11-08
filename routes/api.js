@@ -4,7 +4,7 @@ var Proxy = require('../proxy');
 var superagent = require('superagent');
 var cheerio = require('cheerio');
 
-var updateStreamInfo = function(steam_acount, dak_data, pubg_data){
+var updateStreamInfo = function(steam_acount, session, area, dak_data, pubg_data){
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : '127.0.0.1',
@@ -14,7 +14,7 @@ var updateStreamInfo = function(steam_acount, dak_data, pubg_data){
     });
     var addtime = new Date()*1;
     
-    var queryString = 'insert into `battle_grounds_web`.`player_record`(`steam_acount`,`addtime`,`dak_data`,`pubg_data`) values("'+steam_acount+'","'+addtime+'","'+dak_data+'","'+pubg_data+'")';
+    var queryString = 'insert into `battle_grounds_web`.`player_record`(`steam_acount`,`session`,`area`,`addtime`,`dak_data`,`pubg_data`) values("'+steam_acount+'","'+session+'","'+area+'","'+addtime+'","'+dak_data+'","'+pubg_data+'")';
     console.log('queryString:', queryString);
     connection.connect();
     
@@ -50,6 +50,51 @@ module.exports = function(router){
         });
     });
 
+    // 获取赛季数据 从dak
+    router.route('/getDakSession').get((req, res, next) => {
+        console.log('req.query:', req.query);
+        var resultJSON = {};
+        superagent.get('https://dak.gg/profile/'+ req.query.username)
+        .end(function (err, sres) {
+            if (err) {
+                return next(err);
+            }
+            var $ = cheerio.load(sres.text);
+            var items = {};
+            var curSession = '';
+            $('.seasons ul li').each(function (idx, element) {
+                var $element = $(element);
+                    curSession = '赛季'+$element.find('a').text().match(/#(\d)/)[1];
+                    console.log('curSession:', curSession);
+                    items[curSession] = [];
+            });
+            curSession = '赛季'+$('.seasons ul li.active').find('a').text().match(/#(\d)/)[1]
+            $('.regions ul li').each(function (idx, element) {
+                var $element = $(element);
+                if(!$element.hasClass('played_0')){
+                    items[curSession].push({
+                        title: $element.attr('data-code'),
+                        detail: {
+                            rank: '',
+                            link: $element.find('a').attr('href'),
+                            prevtitle: $element.find('a').text()
+                        }
+                    });
+                }
+            })
+            resultJSON = {
+                code: 0,
+                data: items,
+                playTime: $('.profile-header-card > .card-header-large > .profile-header-stats').eq(1).find('.stat').eq(1).find('.value').html()
+            }
+            if(req.query.callback){
+                res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
+            }else{
+                res.jsonp(resultJSON);
+            }
+        });
+    });
+
     // 获取赛季数据
     router.route('/getGameSession').get((req, res, next) => {
         console.log('req.query:', req.query);
@@ -80,62 +125,71 @@ module.exports = function(router){
             resultJSON = {
                 code: 0,
                 data: items,
-                playTime: $('.profile-header-card > .card-header-large > .profile-header-stats').eq(1).find('.stat').eq(1).find('.value').html()
+                playTime: ''
             }
             if(req.query.callback){
                 res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
             }else{
                 res.jsonp(resultJSON);
             }
-
         });
     });
 
-    // 优先获取战绩
-    router.route('/getGameScoreFrist').get((req, res, next) => {
+    // 获取战绩 从DAK
+    router.route('/getDakScore').get((req, res, next) => {
         console.log('req.query:', req.query);
-        var arrStr = ['单排','单排FPP','双排','双排FPP','四排','四排FPP'];
-        var sessionArr = [];
-        superagent.get('https://dak.gg/profile/'+ req.query.username)
-        .end(function (err, sres) {
-            if (err) {
-                return next(err);
-            }
-            var $ = cheerio.load(sres.text);
-            var items = {};
-            $('.regions li').each(function (idx, element) {
-                var $element = $(element);
-                if($element.hasClass('played_0')){
+        var resultJSON = {};
+        if(req.query.apiurl){
+            superagent.get(decodeURIComponent(req.query.apiurl)).end(function (err, sres) {
+            var arrStr = ['Solo','Solo FPP','Duo','Duo FPP','Four','Four FPP'];
+            var arrSubStr = ['单排','单排FPP','双排','双排FPP','四排','四排FPP'];
+            var sessionArr = [];
+                if (err) {
+                    return next(err);
+                }
+                var $ = cheerio.load(sres.text);
+                var items = {};
+                $('.regions li').each(function (idx, element) {
+                    var $element = $(element);
+                    if($element.hasClass('played_0')){
 
+                    }else{
+                        sessionArr.push();
+                    }
+                });
+                $('.mode-section').each(function (idx, element) {
+                    var $element = $(element);
+                    items[idx]= {
+                        title: arrStr[idx],
+                        subTitle: arrSubStr[idx],
+                        detail: {
+                            rank: $element.find('.desc').find('.rank').text().replace('#',''),
+                            RATING: $element.find('.rating').find('.value').text(),
+                            KDR: $element.find('.kd').find('.value').text(),
+                            WINS: $element.find('.winratio').find('.value').text(),
+                            MATCHES: $element.find('.games').find('.value').text(),
+                            SEASON: $element.find('.desc').find('.rank').text(),
+                            ADR: $element.find('.mostkills').find('.value').text(),
+                            TOP10: $element.find('.top10s').find('.value').text()
+                        }
+                    };
+                });
+                resultJSON = {
+                    code: 0,
+                    data: items,
+                    playTime: '',
+                }
+                if(req.query.callback){
+                    var steam_acount = decodeURIComponent(req.query.apiurl).match(/profile\/(\w+)/)[1];
+                    var session = decodeURIComponent(req.query.apiurl).match(/profile\/(\w+)\/(\w+-pre\d+)/)[2].replace('-pre','0');
+                    var area = decodeURIComponent(req.query.apiurl).match(/profile\/(\w+)\/(\w+-pre\d+)\/(\w+)/)[3];
+                    updateStreamInfo(steam_acount, session, area, encodeURIComponent(JSON.stringify(resultJSON)), null);
+                    res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
                 }else{
-                    sessionArr.push();
+                    res.jsonp(items);
                 }
             });
-            $('.mode-section').each(function (idx, element) {
-                var $element = $(element);
-
-                items[idx]= {
-                    title: arrStr[idx],
-                    detail: {
-                        rank: $element.find('.desc').find('.rank').text(),
-                        RATING: $element.find('.rating').find('.value').text(),
-                        KDR: $element.find('.kd').find('.value').text(),
-                        WINS: $element.find('.winratio').find('.value').text(),
-                        MATCHES: $element.find('.games').find('.value').text(),
-                        SEASON: $element.find('.desc').find('.rank').text(),
-                        ADR: $element.find('.mostkills').find('.value').text(),
-                        TOP10: $element.find('.top10s').find('.value').text()
-                    }
-                };
-            });
-            if(req.query.callback){
-                updateStreamInfo(req.query.username, encodeURIComponent(JSON.stringify(items)), null);
-                res.send(req.query.callback +'('+JSON.stringify(items) +')');
-            }else{
-                res.jsonp(items);
-            }
-
-        });
+        }
     });
 
     // 获取战绩
@@ -184,7 +238,10 @@ module.exports = function(router){
                     playTime: $('.profile-header-card > .card-header-large > .profile-header-stats').eq(1).find('.stat').eq(1).find('.value').html()
                 }
                 if(req.query.callback){
-                    updateStreamInfo(decodeURIComponent(req.query.apiurl).match(/player\/(\w+)\?/)[1], null, encodeURIComponent(JSON.stringify(resultJSON)));
+                    var steam_acount = decodeURIComponent(req.query.apiurl).match(/player\/(\w+)\?/)[1];
+                    var session = decodeURIComponent(req.query.apiurl).match(/season=(\w+\-pre\d+)/)[1].replace('-pre','0');
+                    var area = decodeURIComponent(req.query.apiurl).match(/region=(\w+)/)[1];
+                    updateStreamInfo(steam_acount, session, area, null, encodeURIComponent(JSON.stringify(resultJSON)));
                     res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
                 }else{
                     res.jsonp(resultJSON);
