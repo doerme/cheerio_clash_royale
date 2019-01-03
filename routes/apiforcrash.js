@@ -120,20 +120,25 @@ function getCardDetail(item){
                 var $ = cheerio.load(sres.text);
                 let curItem = {
                     cardname: $('.card__cardName').text(),
-                    description: $('.card__description').text(),
-                    rarity: $('.card__rarity').text(),
-                    rare: $('.card__rarityCaption .card__count').text(),
-                    card__spawnCount: $('.card__spawnCount .card__count').text(),
-                    card__target: $('.card__target .card__count').text(),
-                    card__range: $('.card__range .card__count').text(),
-                    card__hitSpeed: $('.card__hitSpeed .card__count').text(),
-                    card__movementSpeed:  $('.card__movementSpeed .card__count').text()
+                    description: $('.card__description').text(), // 简介
+                    rarity: $('.card__rarity').text(), // 军衔
+                    rare: $('.card__rarityCaption .card__count').text(), // 稀有度
                 }
-                curItem.unitName = []
+                curItem.cardUnit = [] // 卡牌常规属性
+                $('.card__metrics').each(function(eindex, eitem){
+                    curItem.cardUnit.push({
+                        card__spawnCount: $(eitem).find('.card__spawnCount .card__count').text(),
+                        card__target: $(eitem).find('.card__target .card__count').text(),
+                        card__range: $(eitem).find('.card__range .card__count').text(),
+                        card__hitSpeed: $(eitem).find('.card__hitSpeed .card__count').text(),
+                        card__movementSpeed:  $(eitem).find('.card__movementSpeed .card__count').text()
+                    })
+                })
+                curItem.unitName = [] // 卡牌所包含单位名称集合
                 $('div[data-target=".statistics__tabContainer"]').find('.ui__tab').each(function(eindex, eitem){
                     curItem.unitName.push($(eitem).text())
                 })
-                console.log('curItem.unitName', curItem.unitName)
+                curItem.levelData = [] // 卡牌等级数据
                 resolve(curItem)
             }                
         })
