@@ -102,10 +102,10 @@ var detailArray = [
     ];
 
 async function fizz(arr) {
-    let rs=[]
+    let rs={}
     await arr.reduce((p, e, i) => p.then(async () => {
         console.log(`----begin----${e}`);
-        rs.push(await getCardDetail(e));
+        rs[e] = await getCardDetail(e);
         console.log(`----done----${e}`);
     }), Promise.resolve());
     return rs
@@ -118,8 +118,23 @@ function getCardDetail(item){
                 resolve(null)
             } else {
                 var $ = cheerio.load(sres.text);
-                let cardname = $('.card__cardName').text()
-                resolve(cardname)
+                let curItem = {
+                    cardname: $('.card__cardName').text(),
+                    description: $('.card__description').text(),
+                    rarity: $('.card__rarity').text(),
+                    rare: $('.card__rarityCaption .card__count').text(),
+                    card__spawnCount: $('.card__spawnCount .card__count').text(),
+                    card__target: $('.card__target .card__count').text(),
+                    card__range: $('.card__range .card__count').text(),
+                    card__hitSpeed: $('.card__hitSpeed .card__count').text(),
+                    card__movementSpeed:  $('.card__movementSpeed .card__count').text()
+                }
+                curItem.unitName = []
+                $('div[data-target=".statistics__tabContainer"]').find('.ui__tab').each(function(eindex, eitem){
+                    curItem.unitName.push($(eitem).text())
+                })
+                console.log('curItem.unitName', curItem.unitName)
+                resolve(curItem)
             }                
         })
     }).catch(error => console.log('caught', error.message))
@@ -135,6 +150,7 @@ module.exports = function(router){
             data: items,
             playTime: '',
         }
+        console.log('resultJSON', resultJSON)
         if(req.query.callback){
             res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
         }else{
