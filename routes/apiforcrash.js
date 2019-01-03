@@ -2,8 +2,147 @@
 var superagent = require('superagent');
 var cheerio = require('cheerio');
 
+var detailArrayTest = [
+    "Three+Musketeers",
+    "Golem",
+    "Royal+Recruits"
+]
+
+var detailArray = [
+    "Three+Musketeers",
+    "Golem",
+    "Royal+Recruits",
+    "P.E.K.K.A",
+    "Lava+Hound",
+    "Mega+Knight",
+    "Royal+Giant",
+    "Elite+Barbarians",
+    "Giant+Skeleton",
+    "Goblin+Giant",
+    "Sparky",
+    "Barbarians",
+    "Minion+Horde",
+    "Rascals",
+    "Balloon",
+    "Witch",
+    "Prince",
+    "Bowler",
+    "Executioner",
+    "Cannon+Cart",
+    "Electro+Dragon",
+    "Ram+Rider",
+    "Giant",
+    "Wizard",
+    "Royal+Hogs",
+    "Baby+Dragon",
+    "Dark+Prince",
+    "Hunter",
+    "Lumberjack",
+    "Inferno+Dragon",
+    "Electro+Wizard",
+    "Night+Witch",
+    "Magic+Archer",
+    "Valkyrie",
+    "Musketeer",
+    "Mini+P.E.K.K.A",
+    "Hog+Rider",
+    "Battle+Ram",
+    "Flying+Machine",
+    "Zappies",
+    "Knight",
+    "Archers",
+    "Minions",
+    "Bomber",
+    "Goblin+Gang",
+    "Skeleton+Barrel",
+    "Skeleton+Army",
+    "Guards",
+    "Ice+Wizard",
+    "Princess",
+    "Miner",
+    "Bandit",
+    "Royal+Ghost",
+    "Mega+Minion",
+    "Dart+Goblin",
+    "Goblins",
+    "Spear+Goblins",
+    "Fire+Spirits",
+    "Bats",
+    "Ice+Golem",
+    "Skeletons",
+    "Ice+Spirit",
+    "Barbarian+Hut",
+    "X-Bow",
+    "Elixir+Collector",
+    "Goblin+Hut",
+    "Inferno+Tower",
+    "Mortar",
+    "Tesla",
+    "Bomb+Tower",
+    "Furnace",
+    "Cannon",
+    "Tombstone",
+    "Lightning",
+    "Rocket",
+    "Graveyard",
+    "Freeze",
+    "Poison",
+    "Fireball",
+    "Arrows",
+    "Goblin+Barrel",
+    "Tornado",
+    "Clone",
+    "Heal",
+    "Zap",
+    "Giant+Snowball",
+    "Rage",
+    "Barbarian+Barrel",
+    "The+Log",
+    "Mirror"
+    ];
+
+async function fizz(arr) {
+    let rs=[]
+    await arr.reduce((p, e, i) => p.then(async () => {
+        console.log(`----begin----${e}`);
+        rs.push(await getCardDetail(e));
+        console.log(`----done----${e}`);
+    }), Promise.resolve());
+    return rs
+}
+
+function getCardDetail(item){
+    return new Promise(resolve => {
+        superagent.get(`https://statsroyale.com/zh/card/${item}`).end(function (err, sres) {
+            if (err) {
+                resolve(null)
+            } else {
+                var $ = cheerio.load(sres.text);
+                let cardname = $('.card__cardName').text()
+                resolve(cardname)
+            }                
+        })
+    }).catch(error => console.log('caught', error.message))
+}
+
 module.exports = function(router){
-    // 获取赛季数据
+    // 获取卡片详情
+    router.route('/getCardDetail').get(async (req, res, next) => {
+        let resultJSON = {};
+        let items = await fizz(detailArrayTest);
+        resultJSON = {
+            code: 0,
+            data: items,
+            playTime: '',
+        }
+        if(req.query.callback){
+            res.send(req.query.callback +'('+JSON.stringify(resultJSON) +')');
+        }else{
+            res.jsonp(resultJSON);
+        }
+    })
+
+    // 获取卡片列表
     router.route('/getcards').get((req, res, next) => {
         console.log('req.query:', req.query);
         var resultJSON = {};
@@ -37,7 +176,7 @@ module.exports = function(router){
                         name: $util.find('.ui__tooltip').text().replace(/\n/g,''),
                         staticsrc: $util.find('img').attr('src').replace('//cdn.statsroyale.com/images/cards/full/', 'static/img/' + dirname[idx] + '/')
                     })
-                    staticUri.push($util.find('img').attr('src').replace('//cdn.statsroyale.com/images/cards/full/', 'static/img/' + dirname[idx] + '/'))
+                    //staticUri.push($util.find('a').attr('href').replace('https://statsroyale.com/zh/card/', ''))
                 })
                 items.groupData.push(cardData)
             });
