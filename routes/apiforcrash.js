@@ -5,7 +5,8 @@ var cheerio = require('cheerio');
 var detailArrayTest = [
     "Three+Musketeers",
     "Golem",
-    "Royal+Recruits"
+    "Royal+Recruits",
+    "P.E.K.K.A"
 ]
 
 var detailArray = [
