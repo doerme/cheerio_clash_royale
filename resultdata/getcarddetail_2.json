@@ -1,0 +1,1558 @@
+{
+    "code": 0,
+    "data": {
+        "Barbarian+Hut": {
+            "cardname": "野蛮人小屋",
+            "description": "这座小屋每隔一会儿就会放出野蛮人攻击敌军。野蛮人出征！建筑, 3阶竞技场",
+            "rarity": "建筑, 3阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "1min 0sec"
+                    }
+                ],
+                [
+                    {
+                        "name": "数量",
+                        "value": "x 2"
+                    },
+                    {
+                        "name": "出兵速度",
+                        "value": "14.0秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "近战"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.4秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "中等"
+                    }
+                ]
+            ],
+            "unitName": [
+                "野蛮人小屋",
+                "野蛮人"
+            ],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "1025",
+                            "1127",
+                            "1240",
+                            "1363",
+                            "1496",
+                            "1640",
+                            "1804",
+                            "1978",
+                            "2173",
+                            "2388",
+                            "2624"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    }
+                ],
+                [
+                    {
+                        "detail": [
+                            "363",
+                            "399",
+                            "438",
+                            "480",
+                            "528",
+                            "579",
+                            "636",
+                            "699",
+                            "768",
+                            "843",
+                            "927"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "90",
+                            "99",
+                            "109",
+                            "120",
+                            "132",
+                            "144",
+                            "159",
+                            "174",
+                            "192",
+                            "210",
+                            "231"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "64",
+                            "70",
+                            "77",
+                            "85",
+                            "94",
+                            "102",
+                            "113",
+                            "124",
+                            "137",
+                            "150",
+                            "165"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "X-Bow": {
+            "cardname": "X连弩",
+            "description": "你的皇家塔不错啊，但这把X连弩在竞技场这边就能把它射成筛子，真是遗憾呢......建筑, 6阶竞技场",
+            "rarity": "建筑, 6阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "3.5秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "11.5"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "0.3秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "40sec"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "1000",
+                            "1100",
+                            "1210",
+                            "1330",
+                            "1460",
+                            "1600",
+                            "1760",
+                            "1930"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "20",
+                            "22",
+                            "24",
+                            "26",
+                            "29",
+                            "32",
+                            "35",
+                            "38"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "80",
+                            "88",
+                            "96",
+                            "104",
+                            "116",
+                            "128",
+                            "140",
+                            "152"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Elixir+Collector": {
+            "cardname": "圣水收集器",
+            "description": "钱生钱，圣水生圣水。圣水收集器可以产出8圣水，但不会出现在初始卡牌中。建筑, 8阶竞技场",
+            "rarity": "建筑, 8阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "生产速度",
+                        "value": "8.5秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "1min 10sec"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "505",
+                            "555",
+                            "611",
+                            "671",
+                            "737",
+                            "808",
+                            "888",
+                            "974",
+                            "1070",
+                            "1176",
+                            "1292"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    }
+                ]
+            ]
+        },
+        "Goblin+Hut": {
+            "cardname": "哥布林小屋",
+            "description": "这座小屋能放出哥布林投矛手。千万别往里瞧，相信我，你不会想知道他们是如何训练出来的。建筑, 1阶竞技场",
+            "rarity": "建筑, 1阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "50sec"
+                    }
+                ],
+                [
+                    {
+                        "name": "出兵速度",
+                        "value": "4.8秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "5.0"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.7秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "极快"
+                    }
+                ]
+            ],
+            "unitName": [
+                "哥布林小屋",
+                "哥布林投矛手"
+            ],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "735",
+                            "808",
+                            "889",
+                            "977",
+                            "1073",
+                            "1176",
+                            "1293",
+                            " 1418",
+                            "1558",
+                            "1712",
+                            "1881"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    }
+                ],
+                [
+                    {
+                        "detail": [
+                            "62",
+                            "69",
+                            "75",
+                            "83",
+                            "91",
+                            "100",
+                            "110",
+                            "121",
+                            "133",
+                            "146",
+                            "160"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "38",
+                            "42",
+                            "46",
+                            "51",
+                            "56",
+                            "61",
+                            "67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "22",
+                            "24",
+                            "27",
+                            "30",
+                            "32",
+                            "35",
+                            "39",
+                            "43",
+                            "47",
+                            "52",
+                            "57"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Inferno+Tower": {
+            "cardname": "地狱之塔",
+            "description": "防御建筑，对目标造成的火焰伤害会随着时间而递增。再大再强悍的敌人到了它面前都会灰飞烟灭！建筑, 4阶竞技场",
+            "rarity": "建筑, 4阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "6.0"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "0.4秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "40sec"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "825",
+                            "907",
+                            "998",
+                            "1097",
+                            "1204",
+                            "1320",
+                            "1452",
+                            "1592",
+                            "1749",
+                            "1922",
+                            "2112"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "20–400",
+                            "22–440",
+                            "24–484",
+                            "26–532",
+                            "29–584",
+                            "32–640 ",
+                            "35–704",
+                            "38–772",
+                            "42–848",
+                            "46–932",
+                            "51–1024"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "50–1000",
+                            "55–1100",
+                            "60–1210",
+                            "65–1330",
+                            "72–1460",
+                            "80–1600",
+                            "87–1760",
+                            "95–1930",
+                            "105–2120",
+                            "115–2330",
+                            "127–2560"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Mortar": {
+            "cardname": "迫击炮",
+            "description": "射程极远的防御建筑，能发射巨石并造成范围伤害，无法攻击靠得太近的目标！建筑, 6阶竞技场",
+            "rarity": "建筑, 6阶竞技场",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "3.5秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "11.5"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "5.0秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "30sec"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "2.0"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "575",
+                            "632",
+                            "695",
+                            "764",
+                            "839",
+                            "920",
+                            "1012",
+                            "1109",
+                            "1219",
+                            "1339",
+                            "1472",
+                            "1615",
+                            "1776"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "104 ",
+                            "114",
+                            "125",
+                            "138",
+                            "151",
+                            "166",
+                            "183",
+                            "200",
+                            "220",
+                            "242",
+                            "266",
+                            "292",
+                            "321"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "20",
+                            "22",
+                            "25",
+                            "27",
+                            "30",
+                            "33",
+                            "36",
+                            "40",
+                            "44",
+                            "48",
+                            "53",
+                            "58",
+                            "64"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Tesla": {
+            "cardname": "特斯拉电磁塔",
+            "description": "防御建筑。不用电击敌军的时候，拥有雷电之力的特斯拉电磁塔还是藏在地底会比较安全。建筑, 11阶竞技场",
+            "rarity": "建筑, 11阶竞技场",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "5.5"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.1秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "35sec"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "450",
+                            "495",
+                            "544",
+                            "598",
+                            "657",
+                            "720",
+                            "792",
+                            "868",
+                            "954",
+                            "1048",
+                            "1152",
+                            "1264",
+                            "1390"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "90",
+                            "99",
+                            "108",
+                            "119",
+                            "131",
+                            "144",
+                            "158",
+                            "173",
+                            "190",
+                            "209",
+                            "230",
+                            "252",
+                            "278"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "81",
+                            "90",
+                            "98",
+                            "108",
+                            "119",
+                            "130",
+                            "143",
+                            "157",
+                            "172",
+                            "190",
+                            "209",
+                            " 229",
+                            "252"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Bomb+Tower": {
+            "cardname": "炸弹塔",
+            "description": "防御建筑，它里面住着一个炸弹兵，会对任何蠢到接近它的笨蛋造成范围伤害。建筑, 10阶竞技场",
+            "rarity": "建筑, 10阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "6.0"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.6秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "35sec"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "1.5"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "640",
+                            "704",
+                            "774",
+                            "851",
+                            "934",
+                            "1024",
+                            "1126",
+                            "1235",
+                            "1356",
+                            "1491",
+                            "1638"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "105",
+                            "115",
+                            "127",
+                            "139",
+                            "153",
+                            "168",
+                            "184",
+                            "202",
+                            "222",
+                            "244",
+                            "268"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "65",
+                            "71",
+                            "79",
+                            "86",
+                            "95",
+                            "105",
+                            "115",
+                            "126",
+                            "138",
+                            "152",
+                            "167"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Furnace": {
+            "cardname": "烈焰熔炉",
+            "description": "烈焰熔炉每次能产出2个烈焰精灵。不仅如此，用它烤出来的煎饼也很美味。建筑, 5阶竞技场",
+            "rarity": "建筑, 5阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "50sec"
+                    }
+                ],
+                [
+                    {
+                        "name": "数量",
+                        "value": "x 2"
+                    },
+                    {
+                        "name": "出兵速度",
+                        "value": "9.9秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "2.0"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "0.3秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "极快"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "1.5"
+                    }
+                ]
+            ],
+            "unitName": [
+                "烈焰熔炉",
+                "烈焰精灵"
+            ],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "570",
+                            "627",
+                            "689",
+                            "758",
+                            "832",
+                            "912",
+                            "1003",
+                            "1100",
+                            "1208",
+                            "1328",
+                            "1459"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    }
+                ],
+                [
+                    {
+                        "detail": [
+                            "52",
+                            "57",
+                            "62",
+                            "68",
+                            "75",
+                            "82",
+                            "91",
+                            "100",
+                            "110",
+                            "120",
+                            "132"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "101",
+                            "111",
+                            "122",
+                            "134",
+                            "147",
+                            "162",
+                            "178",
+                            "195",
+                            "215",
+                            "236",
+                            "259"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    }
+                ]
+            ]
+        },
+        "Cannon": {
+            "cardname": "加农炮",
+            "description": "防御建筑，发射致命的炮弹，但无法攻击飞行单位。建筑, 3阶竞技场",
+            "rarity": "建筑, 3阶竞技场",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "5.5"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "0.8秒"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "30sec"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "350",
+                            "385",
+                            "423",
+                            "465",
+                            "511",
+                            "560",
+                            "616",
+                            "675",
+                            "742",
+                            "815",
+                            "896",
+                            "983",
+                            "1081"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "60",
+                            "66",
+                            "72",
+                            "79",
+                            "87",
+                            "96",
+                            "105",
+                            "115",
+                            "127",
+                            "139",
+                            "153",
+                            "168",
+                            "185"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "75",
+                            "82",
+                            "90",
+                            "98",
+                            "108",
+                            "120",
+                            "131",
+                            "143",
+                            "158",
+                            "173",
+                            "191",
+                            "210 ",
+                            "231"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Tombstone": {
+            "cardname": "骷髅墓碑",
+            "description": "军队建筑，每隔一会儿放出骷髅兵攻击敌军。被摧毁后会产生3个骷髅兵。有点小恐怖哦！建筑, 2阶竞技场",
+            "rarity": "建筑, 2阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "40sec"
+                    }
+                ],
+                [
+                    {
+                        "name": "出兵速度",
+                        "value": "3.1秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "近战"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.0秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "快"
+                    }
+                ],
+                [
+                    {
+                        "name": "数量",
+                        "value": "x 3"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "近战"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.0秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "快"
+                    }
+                ]
+            ],
+            "unitName": [
+                "骷髅墓碑",
+                "骷髅兵"
+            ],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "240",
+                            "264",
+                            "290",
+                            "319",
+                            "350",
+                            "384",
+                            "422",
+                            "463",
+                            "508",
+                            "559",
+                            "614"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    }
+                ],
+                [
+                    {
+                        "detail": [
+                            "38",
+                            "42",
+                            "46",
+                            "51",
+                            "56",
+                            "61",
+                            "67",
+                            "74",
+                            "81 ",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "38",
+                            "42",
+                            "46",
+                            "51",
+                            "56",
+                            "61",
+                            "67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "38",
+                            "42",
+                            "46",
+                            "51",
+                            "56",
+                            "61",
+                            " 67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Lightning": {
+            "cardname": "雷电法术",
+            "description": "雷电法术最多可伤害和短暂眩晕目标区域内三个当前生命值最高的敌方军队或建筑。对皇家塔的伤害会大打折扣。法术, 4阶竞技场",
+            "rarity": "法术, 4阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "3.5"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "1.5秒"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": []
+        },
+        "Rocket": {
+            "cardname": "火箭",
+            "description": "在小范围内造成大量伤害，效果看上去很过瘾。对皇家塔的伤害会大打折扣。法术, 6阶竞技场",
+            "rarity": "法术, 6阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "2.0"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "700",
+                            "770",
+                            "847",
+                            "931 ",
+                            "1022",
+                            "1120",
+                            "1232",
+                            "1351",
+                            "1484",
+                            "1631",
+                            "1792"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "245",
+                            "269",
+                            "296",
+                            "325",
+                            "357",
+                            "392",
+                            "431",
+                            "472",
+                            "519",
+                            "570",
+                            "627"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Graveyard": {
+            "cardname": "骷髅召唤",
+            "description": "没想到吧！这是一场派对，一场可以在竞技场中任意地点举办的骷髅派对，哇哦！法术, 5阶竞技场",
+            "rarity": "法术, 5阶竞技场",
+            "rare": "传奇",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "传奇"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "4"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "10.0秒"
+                    }
+                ],
+                [
+                    {
+                        "name": "部署时间",
+                        "value": "1秒"
+                    },
+                    {
+                        "name": "出兵速度",
+                        "value": "0.5秒"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "近战"
+                    },
+                    {
+                        "name": "攻击速度",
+                        "value": "1.0秒"
+                    },
+                    {
+                        "name": "移动速度",
+                        "value": "快"
+                    }
+                ]
+            ],
+            "unitName": [
+                "骷髅兵"
+            ],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/hitpoints.png",
+                        "name": "生命值"
+                    },
+                    {
+                        "detail": [
+                            "67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "67",
+                            "74",
+                            "81",
+                            "89",
+                            "98"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damagepersec.png",
+                        "name": "每秒伤害"
+                    }
+                ]
+            ]
+        },
+        "Freeze": {
+            "cardname": "冰冻法术",
+            "description": "冻结军队和建筑，使其无法移动或攻击，还能对其造成伤害。瞧，敌人已经瑟瑟发抖了！法术, 5阶竞技场",
+            "rarity": "法术, 5阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "3"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "5.0秒"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "76",
+                            "83",
+                            "91",
+                            " 101",
+                            "110",
+                            "121",
+                            "133",
+                            "146"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "26",
+                            "29",
+                            "31",
+                            "35",
+                            "38",
+                            "42",
+                            "46",
+                            "51"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Poison": {
+            "cardname": "毒药法术",
+            "description": "用致命的毒素覆盖目标区域，并对区域内的军队和建筑造成持续性伤害。但为什么毒药法术作用过的草地依然生机勃勃绿意盎然呢？猜猜看吧。法术, 5阶竞技场",
+            "rarity": "法术, 5阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "3.5"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "8.0秒"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": []
+        },
+        "Fireball": {
+            "cardname": "火球",
+            "description": "啊啊啊啊...火球出击。它能焚烧小片区域并造成大量伤害。对皇家塔的伤害会大打折扣。法术, 训练营",
+            "rarity": "法术, 训练营",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "2.5"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "325",
+                            "357",
+                            "393",
+                            "432",
+                            "474",
+                            "520",
+                            "572",
+                            "627",
+                            "689",
+                            "757",
+                            "832"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "113",
+                            "124",
+                            "137",
+                            "151",
+                            "165",
+                            "182",
+                            "200",
+                            "219",
+                            "241",
+                            "264",
+                            "291"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Arrows": {
+            "cardname": "万箭齐发",
+            "description": "万箭齐发可以覆盖大片区域并对其中所有敌军造成伤害。对皇家塔的伤害会大打折扣。法术, 训练营",
+            "rarity": "法术, 训练营",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "4.0"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "115",
+                            "126",
+                            "139",
+                            "152",
+                            "167",
+                            "184",
+                            "202",
+                            "221",
+                            "243",
+                            "267",
+                            "294",
+                            "323",
+                            "355"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "40",
+                            "44",
+                            "48",
+                            "53",
+                            "58",
+                            "64",
+                            "70",
+                            "77",
+                            "85",
+                            "93",
+                            "102",
+                            "113",
+                            "124"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Goblin+Barrel": {
+            "cardname": "哥布林飞桶",
+            "description": "可在竞技场任意地点释放三个哥布林。小伙子们，这会是趟惊险的旅程！法术, 1阶竞技场",
+            "rarity": "法术, 1阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": []
+        },
+        "Tornado": {
+            "cardname": "飓风法术",
+            "description": "飓风法术就像个不断旋转产生飓风旋涡的巨型磁铁，会将目标区域内的敌军卷至飓风中心，并对其中的敌军造成持续性伤害。飓风法术对建筑无效。法术, 8阶竞技场",
+            "rarity": "法术, 8阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "5.5"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "2.1秒"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": []
+        }
+    },
+    "playTime": ""
+}

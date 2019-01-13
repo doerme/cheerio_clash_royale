@@ -1,0 +1,466 @@
+{
+    "code": 0,
+    "data": {
+        "Clone": {
+            "cardname": "克隆法术",
+            "description": "克隆目标区域内的我方军队。克隆出的军队非常脆弱，但其伤害输出和同等级的本体一致！克隆法术对建筑无效。法术, 11阶竞技场",
+            "rarity": "法术, 11阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "4"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "1.0秒"
+                    },
+                    {
+                        "name": "克隆军队的生命值",
+                        "value": "1"
+                    },
+                    {
+                        "name": "克隆军队的护盾生命值",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "6 ",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12",
+                            "13"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/commoncard.png",
+                        "name": "克隆的普通卡等级"
+                    },
+                    {
+                        "detail": [
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/rarecard.png",
+                        "name": "克隆的稀有卡等级"
+                    },
+                    {
+                        "detail": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/epiccard.png",
+                        "name": "克隆的史诗卡等级"
+                    },
+                    {
+                        "detail": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/legendarycard.png",
+                        "name": "克隆的传奇卡等级"
+                    }
+                ]
+            ]
+        },
+        "Heal": {
+            "cardname": "治疗法术",
+            "description": "治疗您的军队，让他们能够在战场上持续作战！治疗法术作用期间，目标区域内的友方军队会持续回复生命值。治疗法术对建筑无效！法术, 7阶竞技场",
+            "rarity": "法术, 7阶竞技场",
+            "rare": "稀有",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "稀有"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "4"
+                    },
+                    {
+                        "name": "持续时间",
+                        "value": "2.0秒"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "37",
+                            "40",
+                            "44",
+                            "49",
+                            "54",
+                            "59",
+                            "65",
+                            "71",
+                            "78",
+                            "86",
+                            "94"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/heal.png",
+                        "name": "每秒治疗量"
+                    }
+                ]
+            ]
+        },
+        "Zap": {
+            "cardname": "电击法术",
+            "description": "电击法术可以对目标单位造成瞬间眩晕效果，并在小范围内造成伤害。对皇家塔的伤害会大打折扣。法术, 4阶竞技场",
+            "rarity": "法术, 4阶竞技场",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "2.5"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "75",
+                            "82 ",
+                            "90",
+                            "99",
+                            "109",
+                            "120",
+                            "132",
+                            "144",
+                            "159",
+                            "174",
+                            "192",
+                            "210",
+                            "231"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "26",
+                            "28",
+                            "31",
+                            "34",
+                            "38",
+                            "42",
+                            "46",
+                            "50",
+                            "55",
+                            "60",
+                            "67",
+                            "73",
+                            "80"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Giant+Snowball": {
+            "cardname": "大雪球",
+            "description": "大雪球从天而降！它从冰封之巅滚落，无人可挡。大雪球会对敌军造成击退和减速效果。法术, 8阶竞技场",
+            "rarity": "法术, 8阶竞技场",
+            "rare": "普通",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "普通"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "空中和地面目标"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "3.0"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "75",
+                            "82",
+                            "90",
+                            "99",
+                            "109",
+                            "120",
+                            "132",
+                            "144",
+                            "159",
+                            "174",
+                            "192",
+                            "210",
+                            "231"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/areadamage.png",
+                        "name": "范围伤害"
+                    },
+                    {
+                        "detail": [
+                            "26",
+                            "28",
+                            "31",
+                            "34",
+                            "38",
+                            "42",
+                            "46",
+                            "50",
+                            "55",
+                            "60 ",
+                            "67",
+                            "73",
+                            "80"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Rage": {
+            "cardname": "狂暴法术",
+            "description": "提高军队的移动速度和攻击速度，还可以让建筑的攻击速度和出兵速度加快。冲锋吧！法术, 10阶竞技场",
+            "rarity": "法术, 10阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "范围",
+                        "value": "5"
+                    },
+                    {
+                        "name": "Rage Boost",
+                        "value": "35%"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "6.0秒",
+                            "6.5秒",
+                            "7.0秒",
+                            "7.5秒",
+                            "8.0秒",
+                            "8.5秒",
+                            "9.0秒",
+                            "9.5秒"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/lifetime.png",
+                        "name": "持续时间"
+                    }
+                ]
+            ]
+        },
+        "Barbarian+Barrel": {
+            "cardname": "野蛮人滚桶",
+            "description": "它会向前滚动，对路径上的所有目标造成伤害。滚桶碎裂后会蹦出来一个野蛮人！他到底是怎么钻进去的？！法术, 3阶竞技场",
+            "rarity": "法术, 3阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    }
+                ],
+                [
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "5.0"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": []
+        },
+        "The+Log": {
+            "cardname": "复仇滚木",
+            "description": "不小心洒出的狂暴药水将这根无辜的圆木变成了复仇滚木。现在，它一心复仇，任何挡住它去路的东西都会被它无情碾压！法术, 6阶竞技场",
+            "rarity": "法术, 6阶竞技场",
+            "rare": "传奇",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "传奇"
+                    },
+                    {
+                        "name": "目标",
+                        "value": "地面目标"
+                    },
+                    {
+                        "name": "射程",
+                        "value": "11.1"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "240",
+                            "264",
+                            "290",
+                            "319",
+                            "350"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/damage.png",
+                        "name": "伤害"
+                    },
+                    {
+                        "detail": [
+                            "84 ",
+                            "92",
+                            "101",
+                            "111",
+                            "122"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/crowntowerdamage.png",
+                        "name": "皇家塔伤害"
+                    }
+                ]
+            ]
+        },
+        "Mirror": {
+            "cardname": "镜像法术",
+            "description": "复制您用的上一张牌，圣水花费在原卡牌的基础上+1。不会出现在初始卡牌中。法术, 11阶竞技场",
+            "rarity": "法术, 11阶竞技场",
+            "rare": "史诗",
+            "cardUnit": [
+                [
+                    {
+                        "name": "稀有度",
+                        "value": "史诗"
+                    }
+                ]
+            ],
+            "unitName": [],
+            "levelData": [
+                [
+                    {
+                        "detail": [
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12",
+                            "13",
+                            "14"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/commoncard.png",
+                        "name": "复制的普通卡等级"
+                    },
+                    {
+                        "detail": [
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9",
+                            "10",
+                            "11",
+                            "12"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/rarecard.png",
+                        "name": "复制的稀有卡等级"
+                    },
+                    {
+                        "detail": [
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/epiccard.png",
+                        "name": "复制的史诗卡等级"
+                    },
+                    {
+                        "detail": [
+                            "1",
+                            "1",
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ],
+                        "img": "//cdn.statsroyale.com/images/attribs/legendarycard.png",
+                        "name": "复制的传奇卡等级"
+                    }
+                ]
+            ]
+        }
+    },
+    "playTime": ""
+}
