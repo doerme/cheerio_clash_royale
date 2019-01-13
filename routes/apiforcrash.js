@@ -3,10 +3,9 @@ var superagent = require('superagent');
 var cheerio = require('cheerio');
 
 var detailArrayTest = [
-    "Three+Musketeers",
+    "Freeze",
     "Golem",
-    "Royal+Recruits",
-    "P.E.K.K.A"
+    "Barbarian+Hut"
 ]
 
 var detailArray = [
@@ -121,18 +120,18 @@ function getCardDetail(item){
                 var $ = cheerio.load(sres.text);
                 let curItem = {
                     cardname: $('.card__cardName').text(),
-                    description: $('.card__description').text(), // 简介
+                    description: $('.card__description').text().replace(/\n/g,''), // 简介
                     rarity: $('.card__rarity').text(), // 军衔
                     rare: $('.card__rarityCaption .card__count').text(), // 稀有度
                 }
                 curItem.cardUnit = [] // 卡牌常规属性
                 $('.card__metrics').each(function(eindex, eitem){
-                    curItem.cardUnit.push({
-                        card__spawnCount: $(eitem).find('.card__spawnCount .card__count').text(),
-                        card__target: $(eitem).find('.card__target .card__count').text(),
-                        card__range: $(eitem).find('.card__range .card__count').text(),
-                        card__hitSpeed: $(eitem).find('.card__hitSpeed .card__count').text(),
-                        card__movementSpeed:  $(eitem).find('.card__movementSpeed .card__count').text()
+                    curItem.cardUnit[eindex] = []
+                    $(eitem).find('.card__metric').each(function(e2index, e2item){
+                        curItem.cardUnit[eindex].push({
+                            name: $(e2item).find('.card__metricCaption').text(),
+                            value: $(e2item).find('.card__count').text()
+                        })
                     })
                 })
                 curItem.unitName = [] // 卡牌所包含单位名称集合
@@ -140,6 +139,22 @@ function getCardDetail(item){
                     curItem.unitName.push($(eitem).text())
                 })
                 curItem.levelData = [] // 卡牌等级数据
+                $('.card__desktopTable').each(function(tableindex, tableitem){
+                    curItem.levelData[tableindex] = []
+                    $(tableitem).find('.card__tableValues').each(function(trindex, tritem){
+                        curItem.levelData[tableindex][trindex] = {}
+                        curItem.levelData[tableindex][trindex].detail = []
+                        $(tritem).find('.card__tableValue').each(function(tdindex, tditem){
+                            if(tdindex === 0) {
+                                curItem.levelData[tableindex][trindex].img = $(tditem).find('img').attr('src')
+                                curItem.levelData[tableindex][trindex].name = $(tditem).find('strong').text()
+                            } else {
+                                curItem.levelData[tableindex][trindex].detail.push($(tditem).text().replace(/\n/g,''))
+                            }
+                        })
+                    })
+                })
+
                 resolve(curItem)
             }                
         })
