@@ -62,37 +62,37 @@ var detailArray = [
     // "Ice+Wizard",
     // "Princess",
     // "Miner",
-    // "Bandit",
-    // "Royal+Ghost",
-    // "Mega+Minion",
-    // "Dart+Goblin",
-    // "Goblins",
-    // "Spear+Goblins",
-    // "Fire+Spirits",
-    // "Bats",
-    // "Ice+Golem",
-    // "Skeletons",
-    // "Ice+Spirit",
-    // "Barbarian+Hut",
-    // "X-Bow",
-    // "Elixir+Collector",
-    // "Goblin+Hut",
-    // "Inferno+Tower",
-    // "Mortar",
-    // "Tesla",
-    // "Bomb+Tower",
-    // "Furnace",
-    // "Cannon",
-    // "Tombstone",
-    // "Lightning",
-    // "Rocket",
-    // "Graveyard",
-    // "Freeze",
-    // "Poison",
-    // "Fireball",
-    // "Arrows",
-    // "Goblin+Barrel",
-    // "Tornado",
+    "Bandit",
+    "Royal+Ghost",
+    "Mega+Minion",
+    "Dart+Goblin",
+    "Goblins",
+    "Spear+Goblins",
+    "Fire+Spirits",
+    "Bats",
+    "Ice+Golem",
+    "Skeletons",
+    "Ice+Spirit",
+    "Barbarian+Hut",
+    "X-Bow",
+    "Elixir+Collector",
+    "Goblin+Hut",
+    "Inferno+Tower",
+    "Mortar",
+    "Tesla",
+    "Bomb+Tower",
+    "Furnace",
+    "Cannon",
+    "Tombstone",
+    "Lightning",
+    "Rocket",
+    "Graveyard",
+    "Freeze",
+    "Poison",
+    "Fireball",
+    "Arrows",
+    "Goblin+Barrel",
+    "Tornado",
     "Clone",
     "Heal",
     "Zap",
@@ -113,6 +113,13 @@ async function fizz(arr) {
     return rs
 }
 
+function hyphenate(str) {
+    return (str + "").replace(/[A-Z]/g,
+    function(match) {
+        return "-" + match.toLowerCase();
+    });
+}
+
 function getCardDetail(item){
     return new Promise(resolve => {
         superagent.get(`https://statsroyale.com/zh/card/${item}`).end(function (err, sres) {
@@ -131,6 +138,7 @@ function getCardDetail(item){
                     curItem.cardUnit[eindex] = []
                     $(eitem).find('.card__metric').each(function(e2index, e2item){
                         curItem.cardUnit[eindex].push({
+                            type: hyphenate($(e2item).attr('class').replace('card__metric card__','').replace('card__metric', '')),
                             name: $(e2item).find('.card__metricCaption').text(),
                             value: $(e2item).find('.card__count').text()
                         })
